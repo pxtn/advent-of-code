@@ -24,18 +24,18 @@ exports.run = (func) => {
 
   const outputLines = outputData.map(
     (data) =>
-      `||  ${data.label.padEnd(maxLabelLength)} : ${data.value.padEnd(
+      `‖  ${data.label.padEnd(maxLabelLength)} : ${data.value.padEnd(
         maxValueLength
-      )}  ||`
+      )}  ‖`
   );
 
   console.log("\n");
-  console.log("=".repeat(outputLines[0].length));
-  console.log(`||${" ".repeat(outputLines[0].length - 4)}||`);
+  console.log(`★ ${"=".repeat(outputLines[0].length - 4)} ★`);
+  console.log(`‖${" ".repeat(outputLines[0].length - 2)}‖`);
   outputLines.forEach((line) => {
     console.log(line);
   });
-  console.log(`||${" ".repeat(outputLines[0].length - 4)}||`);
-  console.log("=".repeat(outputLines[0].length));
+  console.log(`‖${" ".repeat(outputLines[0].length - 2)}‖`);
+  console.log(`★ ${"=".repeat(outputLines[0].length - 4)} ★`);
   console.log("\n");
 };
