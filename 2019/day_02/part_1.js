@@ -1,27 +1,36 @@
 // Day 2: 1202 Program Alarm
 // Part One
 let { input } = require("./input.js");
+const { run } = require("../../util/run.js");
 
-let i = 0;
+const func = () => {
+  let output;
+  // let operations = 0; // count the number of operations
 
-input[1] = 12;
-input[2] = 2;
+  let i = 0;
 
-while (input[i] != undefined) {
-  const opcode = input[i];
-  if (opcode === 1) {
-    input[input[i + 3]] = input[input[i + 1]] + input[input[i + 2]];
-  } else if (opcode === 2) {
-    input[input[i + 3]] = input[input[i + 1]] * input[input[i + 2]];
-  } else if (opcode === 99) {
-    break;
-  } else {
-    console.error("invalid opcode", opcode);
-    return;
+  input[1] = 12;
+  input[2] = 2;
+
+  while (input[i] != undefined) {
+    const opcode = input[i];
+    if (opcode === 1) {
+      input[input[i + 3]] = input[input[i + 1]] + input[input[i + 2]];
+    } else if (opcode === 2) {
+      input[input[i + 3]] = input[input[i + 1]] * input[input[i + 2]];
+    } else if (opcode === 99) {
+      break;
+    } else {
+      console.error("invalid opcode", opcode);
+      return;
+    }
+    i += 4;
   }
-  i += 4;
-}
 
-const output = input[0];
+  output = input[0];
 
-console.log(output); // 6627023
+  return { output /*, operations */ };
+};
+
+// output: 6627023
+run(func);
