@@ -19,7 +19,6 @@ const func = () => {
   let output = 0;
 
   input.split('\n\n').forEach(entry => {
-    console.log(entry + '\n');
     if (checkIfFieldsAreAvailable(entry)) {
       output++;
     }
